@@ -1,31 +1,141 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+:root {
+    /* Colors */
+    --color-text: #fff;
+    --color-primary: #245685;
+    --color-secondary: #414142;
+    --color-dark: #0b2447;
+    --color-bg: #cadbebda; /* Background color for the entire page */
+    
+    /* Fonts */
+    --font-roboto: "Roboto", sans-serif;
+    --font-heading: "Playfair Display", serif;
 }
 
-main{
+body {
+    background-color: var(--color-bg); /* Background color for the entire page */
+    font-family: var(--font-roboto); /* Font styling */
+    color: var(--color-text); /* Text color */
+}
+
+header {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+header h1 {
+    font-family: var(--font-heading); /* Use the stylish font for headings */
+    font-size: 2.5rem; /* Increase font size for prominence */
+    color: var(--color-primary); /* Heading color */
+    margin: 0;
+    font-weight: 700; /* Bold heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a shadow for a stylish effect */
+    text-decoration: underline; /* Add underline */
+    text-decoration-color: var(--color-primary); /* Customize underline color to match heading */
+    text-decoration-thickness: 2px; /* Adjust the thickness of the underline */
+}
+
+
+main {
     width: 60%;
-    height:500px;
-    margin:auto;
-    margin-top: 100px;
-    box-shadow: 0px 0px 3px grey;
+    height: 500px;
+    margin: auto;
+    margin-top: 20px; /* Reduced top margin to decrease space between title and image container */
+    box-shadow: 40px 40px 40px rgba(34, 33, 33, 0.986); /* Enhanced shadow */
     position: relative;
     overflow: hidden;
+    border-radius: 10px; /* Rounded corners for a modern look */
+   
+    border: 6px solid var(--color-secondary); /* Light border for definition */
 }
 
-.slide{
+.slide {
     width: 100%;
     height: 100%;
-   /* transition: transform 3s ease; */
-   transition: transform 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
     position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover; /* Ensures image covers the slide area */
 }
-.nav{
+
+.nav {
     text-align: center;
-    margin-top: 15px;
+    position: absolute;
+    bottom: 40px; /* Move navigation buttons slightly higher */
+    width: 100%;
+    display: flex; /* Use flexbox for button alignment */
+    justify-content: center; /* Center buttons horizontally */
 }
-.nav button{
-    font-size:25px;
-    padding:5px;
+
+.nav button {
+    font-size: 25px;
+    padding: 10px 20px; /* Adjust padding for better click area */
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: var(--color-text); /* Text color */
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px; /* Add space between buttons */
+    transition: background-color 0.3s;
+}
+
+.nav button:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+}
+
+/* Styles for mobile devices */
+@media (max-width: 768px) {
+    main {
+        width: 90%;
+        height: 300px;
+    }
+
+    .nav button {
+        font-size: 20px;
+        padding: 8px 16px; /* Adjust padding */
+    }
+}
+
+/* Styles for extra-small devices (e.g., smartphones) */
+@media (max-width: 480px) {
+    main {
+        width: 100%;
+        height: 200px;
+    }
+
+    .nav button {
+        font-size: 18px;
+        padding: 6px 12px; /* Adjust padding */
+    }
+}
+
+/* Add a fade effect to the slides */
+.slide {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* Style for navigation dots */
+.nav-dots {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #070707;
 }
